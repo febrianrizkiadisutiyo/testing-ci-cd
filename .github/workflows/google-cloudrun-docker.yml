@@ -88,7 +88,7 @@ jobs:
           version: 'latest'
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.SERVICEACCOUNTKEY_JSON }}
-          credentials: ${{ secrets.CREDENTIALS_JSON }
+          credentials: ${{ secrets.CREDENTIALS_JSON }}
           token: ${{ secrets.TOKEN_JSON }}
 
       - name: Build and Push Container
