@@ -71,9 +71,6 @@ jobs:
         uses: "google-github-actions/auth@v2"
         with:
           gcloud_service_account_key: "${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}"
-          service_account: "${{ secrets.secrets.SERVICEACCOUNTKEY_JSON }}"
-          credentials_json: "${{ secrets.secrets.secrets.CREDENTIALS_JSON }}"
-          token.json: "${{ secrets.secrets.secrets.TOKEN_JSON }}"
   
       - name: Configure Docker to use gcloud
         run: |-
