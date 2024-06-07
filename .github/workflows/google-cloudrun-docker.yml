@@ -49,10 +49,10 @@ on:
     branches: ["main"]
 
 env:
-  PROJECT_ID: hay-hair-beauty # TODO: update Google Cloud project id
+  PROJECT_ID: example-project-first-1234 # TODO: update Google Cloud project id
   GAR_LOCATION: asia-southeast2 # TODO: update Artifact Registry location
-  GAR_REPOSITORY_NAME: image-registry # TODO: update Artifact Registry Repository name
-  SERVICE: hay-github-actions # TODO: update Cloud Run service name
+  GAR_REPOSITORY_NAME: image-registry-ex # TODO: update Artifact Registry Repository name
+  SERVICE: github-actions-ex # TODO: update Cloud Run service name
   REGION: asia-southeast2 # TODO: update Cloud Run service region
 
 jobs:
@@ -75,7 +75,9 @@ jobs:
         uses: google-github-actions/setup-gcloud@v1
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
-          service_account_key: ${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}
+          service_account_key: ${{ secrets.SERVICEACCOUNTKEY_JSON }}
+          credentials: ${{ secrets.CREDENTIALS_JSON }}
+          token: ${{ secrets.TOKEN_JSON }}
 
       - name: Configure Docker to use gcloud
         run: |-
