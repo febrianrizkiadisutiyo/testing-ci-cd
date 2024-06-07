@@ -70,7 +70,8 @@ jobs:
         id: auth
         uses: "google-github-actions/auth@v2"
         with:
-          credentials.json: "${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}"
+          credentials_json: "${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}"
+
   
       - name: Configure Docker to use gcloud
         run: |-
