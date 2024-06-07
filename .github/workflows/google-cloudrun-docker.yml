@@ -72,7 +72,12 @@ jobs:
         with:
           credentials_json: "${{ secrets.GCLOUD_SERVICE_ACCOUNT_KEY }}"
 
-  
+      - name: Set up additional credentials
+        run: |
+          echo "${{ secrets.CREDENTIALS_JSON }}" > credentials.json
+          echo "${{ secrets.SERVICEACCOUNTKEY_JSON }}" > serviceAccountKey.json
+          echo "${{ secrets.TOKEN_JSON }}" > token.json
+
       - name: Configure Docker to use gcloud
         run: |-
           gcloud auth configure-docker ${{ env.GAR_LOCATION }}-docker.pkg.dev --quiet
