@@ -77,11 +77,19 @@ jobs:
         run: |-
           gcloud auth configure-docker ${{ env.GAR_LOCATION }}-docker.pkg.dev --quiet
 
-      - name: Set up additional credentials
-        run: |
-          echo "${{ secrets.CREDENTIALS_JSON }}" > credentials.json
-          echo "${{ secrets.SERVICEACCOUNTKEY_JSON }}" > serviceAccountKey.json
-          echo "${{ secrets.TOKEN_JSON }}" > token.json
+      # - name: Set up additional credentials
+      #   run: |
+      #     echo "${{ secrets.CREDENTIALS_JSON }}" > credentials.json
+      #     echo "${{ secrets.SERVICEACCOUNTKEY_JSON }}" > serviceAccountKey.json
+      #     echo "${{ secrets.TOKEN_JSON }}" > token.json
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0.2.0
+        with:
+          version: 'latest'
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.SERVICEACCOUNTKEY_JSON }}
+          credentials: ${{ secrets.CREDENTIALS_JSON }
+          token: ${{ secrets.TOKEN_JSON }}
 
       - name: Build and Push Container
         run: |-
