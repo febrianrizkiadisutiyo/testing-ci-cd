@@ -1,5 +1,5 @@
 node_modules
-credentials.json
+# credentials.json
 serviceAccountKey.json
-token.json
+# token.json
 github-actions-service-account.json
