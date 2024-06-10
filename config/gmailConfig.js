@@ -6,7 +6,7 @@ const { google } = require("googleapis");
 // If modifying these scopes, delete token.json.
 const SCOPES = ["https://www.googleapis.com/auth/gmail.send"];
 const TOKEN_PATH = path.join(process.cwd(), "token.json");
-const CREDENTIALS_PATH = path.join(__dirname, "../credentials.json");
+const CREDENTIALS_PATH = path.join(__dirname, "credentials.json");
 
 /**
  * Reads previously authorized credentials from the save file.
